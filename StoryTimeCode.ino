@@ -25,14 +25,14 @@ void connect(void);
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "PiAP"
-#define WLAN_PASS       "3.14LckKy"
+#define WLAN_SSID       "WRITE IN SSID"
+#define WLAN_PASS       "WRITE IN PASSWORD"
 
 /************************* Adafruit.io Setup *********************************/
 
-#define AIO_SERVER      "192.168.2.3"
+#define AIO_SERVER      "WRITE IN IP ADDRESS"
 #define AIO_SERVERPORT  1883
-#define AIO_USERNAME    "David"
+#define AIO_USERNAME    "WRITE IN USERNAME"
 #define AIO_KEY         ""
 
 /************ Global State (you don't need to change this!) ******************/
