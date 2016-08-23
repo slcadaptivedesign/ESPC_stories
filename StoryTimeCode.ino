@@ -60,6 +60,8 @@ Adafruit_MQTT_Client mqtt(&client, MQTT_SERVER, AIO_SERVERPORT, MQTT_CLIENTID, M
 const char BUTTON_FEED[] PROGMEM = AIO_USERNAME "";
 Adafruit_MQTT_Publish button = Adafruit_MQTT_Publish(&mqtt, BUTTON_FEED);
 Adafruit_MQTT_Publish button2 = Adafruit_MQTT_Publish(&mqtt, BUTTON_FEED);
+Adafruit_MQTT_Publish button3 = Adafruit_MQTT_Publish(&mqtt, BUTTON_FEED);
+Adafruit_MQTT_Publish button4 = Adafruit_MQTT_Publish(&mqtt, BUTTON_FEED);
 
 /*************************** Sketch Code ************************************/
 
@@ -74,7 +76,9 @@ void setup() {
 
   // set button pin as an input
   pinMode(BUTTON, INPUT_PULLUP);
-  pinMode(Button2, INPUT);
+  pinMode(Button3, INPUT);
+  pinMode(Button3, INPUT);
+  pinMode(Button4, INPUT);
 
   Serial.begin(115200);
 
