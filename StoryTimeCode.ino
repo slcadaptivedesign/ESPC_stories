@@ -19,20 +19,22 @@
 void connect(void);
 
 /****************************** Pins ******************************************/
-
+//music button
 #define BUTTON          2
 #define Button2         5
+#define Button3         14
+#define Button4         15
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "WRITE IN SSID"
-#define WLAN_PASS       "WRITE IN PASSWORD"
+#define WLAN_SSID       "WRITE THE SSID"
+#define WLAN_PASS       "WRITE THE PASSWORD"
 
 /************************* Adafruit.io Setup *********************************/
 
-#define AIO_SERVER      "WRITE IN IP ADDRESS"
+#define AIO_SERVER      "WRITE THE SERVER #"
 #define AIO_SERVERPORT  1883
-#define AIO_USERNAME    "WRITE IN USERNAME"
+#define AIO_USERNAME    "WRITE USERNAME"
 #define AIO_KEY         ""
 
 /************ Global State (you don't need to change this!) ******************/
@@ -66,7 +68,7 @@ int current = 0;
 int last = -1;
 int current2 = 0;
 int last2 = -1;
-int value, value2;
+int value, value2, value3, value4;
 
 void setup() {
 
@@ -112,6 +114,8 @@ void loop() {
   // grab the current state of the button
   current = digitalRead(BUTTON);
   current2 = digitalRead(Button2);
+  current3 = digitalRead(Button3);
+  current4 = digitalRead(Button4);
 
   if (current == LOW){
     value = 2;
@@ -131,7 +135,24 @@ void loop() {
   else if (current2 == HIGH) {
     value2 = 0;
   }
-
+  if (current3 == LOW){
+    value3 = 4;
+    Serial.print(F("/nSending button value: "));
+    Serial.print(value3);
+    button3.publish(value3);
+  }
+  else if (current3 == HIGH){
+    value3 = 0;
+  }
+  if (current4 == LOW){
+    value4 = 5;
+    Serial.print(F("/nSending button value: "));
+    Serial.print(value4);
+    button4.publish(value4);
+  }
+  else if (current4 == HIGH){
+    value4 = 0;
+  }
   // return if the value hasn't changed
 //  if(current == last) //&& current2 == last2);
 //    return;
