@@ -20,10 +20,10 @@ void connect(void);
 
 /****************************** Pins ******************************************/
 //music button
-#define BUTTON          2
+#define BUTTON          2 //has a pull-up resistor attached
 #define Button2         5
 #define Button3         14
-#define Button4         15
+#define Button4         15 //has a pull-down resistor attached
 
 /************************* WiFi Access Point *********************************/
 
@@ -148,13 +148,13 @@ void loop() {
   else if (current3 == HIGH){
     value3 = 0;
   }
-  if (current4 == LOW){
+  if (current4 == HIGH){ //needs to be HIGH for true because of the pull-down resistor
     value4 = 5;
     Serial.print(F("/nSending button value: "));
     Serial.print(value4);
     button4.publish(value4);
   }
-  else if (current4 == HIGH){
+  else if (current4 == LOW){
     value4 = 0;
   }
   // return if the value hasn't changed
